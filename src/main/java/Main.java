@@ -150,7 +150,7 @@ public class Main {
             ) {
                 playerLose = true;
             }
-        } while (tilesFilled <= 9 || !playerWin || !playerLose);
+        } while (tilesFilled < 9 || !playerWin || !playerLose);
 
         if (playerWin) {
             System.out.println("You won!");
