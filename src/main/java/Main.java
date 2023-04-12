@@ -19,7 +19,7 @@ public class Main {
         String Name;
         int a = random.nextInt(2);
         int b = Math.abs(a - 1);
-        boolean playerWin = false;
+        Boolean playerWin = null;
         int tilesFilled = 0;
 
         //Welcome screen
@@ -121,38 +121,38 @@ public class Main {
                     }
                 } while (!setOfNumbers);
                 tilesFilled++;
-        } while (tilesFilled <= 9);
             //Victory conditions
             if (
-                    (board[0][0] == OX[a] && board[0][1] == OX[a] && board[0][2] == OX[a]) ||
-                    (board[1][0] == OX[a] && board[1][1] == OX[a] && board[1][2] == OX[a]) ||
-                    (board[2][0] == OX[a] && board[2][1] == OX[a] && board[2][2] == OX[a]) ||
-                    (board[0][0] == OX[a] && board[1][0] == OX[a] && board[2][0] == OX[a]) ||
-                    (board[0][1] == OX[a] && board[1][1] == OX[a] && board[2][1] == OX[a]) ||
-                    (board[0][2] == OX[a] && board[1][2] == OX[a] && board[2][2] == OX[a]) ||
-                    (board[0][0] == OX[a] && board[1][1] == OX[a] && board[2][2] == OX[a]) ||
-                    (board[0][2] == OX[a] && board[1][1] == OX[a] && board[2][0] == OX[a])
+                            (board[0][0] == OX[a] && board[0][1] == OX[a] && board[0][2] == OX[a]) ||
+                            (board[1][0] == OX[a] && board[1][1] == OX[a] && board[1][2] == OX[a]) ||
+                            (board[2][0] == OX[a] && board[2][1] == OX[a] && board[2][2] == OX[a]) ||
+                            (board[0][0] == OX[a] && board[1][0] == OX[a] && board[2][0] == OX[a]) ||
+                            (board[0][1] == OX[a] && board[1][1] == OX[a] && board[2][1] == OX[a]) ||
+                            (board[0][2] == OX[a] && board[1][2] == OX[a] && board[2][2] == OX[a]) ||
+                            (board[0][0] == OX[a] && board[1][1] == OX[a] && board[2][2] == OX[a]) ||
+                            (board[0][2] == OX[a] && board[1][1] == OX[a] && board[2][0] == OX[a])
             ) {
                 playerWin = true;
             } else if (
-                    (board[0][0] == OX[b] && board[0][1] == OX[b] && board[0][2] == OX[b]) ||
-                    (board[1][0] == OX[b] && board[1][1] == OX[b] && board[1][2] == OX[b]) ||
-                    (board[2][0] == OX[b] && board[2][1] == OX[b] && board[2][2] == OX[b]) ||
-                    (board[0][0] == OX[b] && board[1][0] == OX[b] && board[2][0] == OX[b]) ||
-                    (board[0][1] == OX[b] && board[1][1] == OX[b] && board[2][1] == OX[b]) ||
-                    (board[0][2] == OX[b] && board[1][2] == OX[b] && board[2][2] == OX[b]) ||
-                    (board[0][0] == OX[b] && board[1][1] == OX[b] && board[2][2] == OX[b]) ||
-                    (board[0][2] == OX[b] && board[1][1] == OX[b] && board[2][0] == OX[b])
+                            (board[0][0] == OX[b] && board[0][1] == OX[b] && board[0][2] == OX[b]) ||
+                            (board[1][0] == OX[b] && board[1][1] == OX[b] && board[1][2] == OX[b]) ||
+                            (board[2][0] == OX[b] && board[2][1] == OX[b] && board[2][2] == OX[b]) ||
+                            (board[0][0] == OX[b] && board[1][0] == OX[b] && board[2][0] == OX[b]) ||
+                            (board[0][1] == OX[b] && board[1][1] == OX[b] && board[2][1] == OX[b]) ||
+                            (board[0][2] == OX[b] && board[1][2] == OX[b] && board[2][2] == OX[b]) ||
+                            (board[0][0] == OX[b] && board[1][1] == OX[b] && board[2][2] == OX[b]) ||
+                            (board[0][2] == OX[b] && board[1][1] == OX[b] && board[2][0] == OX[b])
             ) {
                 playerWin = false;
             }
+        } while (tilesFilled <= 9 || playerWin == true || playerWin == false);
 
             if (playerWin) {
-                System.out.println("Congratulations, you won!");
+                System.out.println("You won!");
             } else if (!playerWin) {
                 System.out.println("Computer won XD.");
             }   else {
                 System.out.println("Tie.");
             }
-        }
     }
+}
