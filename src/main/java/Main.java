@@ -19,7 +19,8 @@ public class Main {
         String Name;
         int a = random.nextInt(2);
         int b = Math.abs(a - 1);
-        Boolean playerWin = null;
+        boolean playerWin = false;
+        boolean playerLose = false;
         int tilesFilled = 0;
 
         //Welcome screen
@@ -109,21 +110,10 @@ public class Main {
                 }
                 default -> System.out.print("Please enter a correct value");
             }
-                tilesFilled++;
-                //Computer moves (randomly XD)
-                boolean setOfNumbers = false;
-                do {
-                    int c = random.nextInt(3);
-                    int d = random.nextInt(3);
-                    if (board[c][d] == '_') {
-                        board[c][d] = OX[b];
-                        setOfNumbers = true;
-                    }
-                } while (!setOfNumbers);
-                tilesFilled++;
-            //Victory conditions
+            tilesFilled++;
+            //Victory conditions for human
             if (
-                            (board[0][0] == OX[a] && board[0][1] == OX[a] && board[0][2] == OX[a]) ||
+                    (board[0][0] == OX[a] && board[0][1] == OX[a] && board[0][2] == OX[a]) ||
                             (board[1][0] == OX[a] && board[1][1] == OX[a] && board[1][2] == OX[a]) ||
                             (board[2][0] == OX[a] && board[2][1] == OX[a] && board[2][2] == OX[a]) ||
                             (board[0][0] == OX[a] && board[1][0] == OX[a] && board[2][0] == OX[a]) ||
@@ -133,8 +123,23 @@ public class Main {
                             (board[0][2] == OX[a] && board[1][1] == OX[a] && board[2][0] == OX[a])
             ) {
                 playerWin = true;
-            } else if (
-                            (board[0][0] == OX[b] && board[0][1] == OX[b] && board[0][2] == OX[b]) ||
+            }
+            //Computer moves (randomly XD)
+            boolean setOfNumbers = false;
+            if(tilesFilled<=8) {
+                do {
+                    int c = random.nextInt(3);
+                    int d = random.nextInt(3);
+                    if (board[c][d] == '_') {
+                        board[c][d] = OX[b];
+                        setOfNumbers = true;
+                    }
+                } while (!setOfNumbers);
+                tilesFilled++;
+            }
+            //Victory conditions for compuer
+            if (
+                    (board[0][0] == OX[b] && board[0][1] == OX[b] && board[0][2] == OX[b]) ||
                             (board[1][0] == OX[b] && board[1][1] == OX[b] && board[1][2] == OX[b]) ||
                             (board[2][0] == OX[b] && board[2][1] == OX[b] && board[2][2] == OX[b]) ||
                             (board[0][0] == OX[b] && board[1][0] == OX[b] && board[2][0] == OX[b]) ||
@@ -143,16 +148,15 @@ public class Main {
                             (board[0][0] == OX[b] && board[1][1] == OX[b] && board[2][2] == OX[b]) ||
                             (board[0][2] == OX[b] && board[1][1] == OX[b] && board[2][0] == OX[b])
             ) {
-                playerWin = false;
+                playerLose = true;
             }
-        } while (tilesFilled <= 9 || playerWin == true || playerWin == false);
+        } while (tilesFilled <= 9 || playerWin == false || playerLose == false);
 
-            if (playerWin) {
-                System.out.println("You won!");
-            } else if (!playerWin) {
-                System.out.println("Computer won XD.");
-            }   else {
-                System.out.println("Tie.");
-            }
+        if (playerWin) {
+            System.out.println("You won!");
+        } else if (playerLose) {
+            System.out.println("Computer won XD.");
+        } else
+            System.out.println("Tie.");
     }
 }
