@@ -113,7 +113,7 @@ public class Main {
             tilesFilled++;
             //Victory conditions for human
             if (
-                    (board[0][0] == OX[a] && board[0][1] == OX[a] && board[0][2] == OX[a]) ||
+                            (board[0][0] == OX[a] && board[0][1] == OX[a] && board[0][2] == OX[a]) ||
                             (board[1][0] == OX[a] && board[1][1] == OX[a] && board[1][2] == OX[a]) ||
                             (board[2][0] == OX[a] && board[2][1] == OX[a] && board[2][2] == OX[a]) ||
                             (board[0][0] == OX[a] && board[1][0] == OX[a] && board[2][0] == OX[a]) ||
@@ -137,9 +137,9 @@ public class Main {
                 } while (!setOfNumbers);
                 tilesFilled++;
             }
-            //Victory conditions for compuer
+            //Victory conditions for computer
             if (
-                    (board[0][0] == OX[b] && board[0][1] == OX[b] && board[0][2] == OX[b]) ||
+                            (board[0][0] == OX[b] && board[0][1] == OX[b] && board[0][2] == OX[b]) ||
                             (board[1][0] == OX[b] && board[1][1] == OX[b] && board[1][2] == OX[b]) ||
                             (board[2][0] == OX[b] && board[2][1] == OX[b] && board[2][2] == OX[b]) ||
                             (board[0][0] == OX[b] && board[1][0] == OX[b] && board[2][0] == OX[b]) ||
@@ -150,7 +150,7 @@ public class Main {
             ) {
                 playerLose = true;
             }
-        } while (tilesFilled <= 9 || playerWin == false || playerLose == false);
+        } while (tilesFilled <= 9 || !playerWin || !playerLose);
 
         if (playerWin) {
             System.out.println("You won!");
