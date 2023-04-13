@@ -34,12 +34,6 @@ public class Main {
         //Gameplay
         do {
             //Printing board
-            for (int i = 0; i < board.length; i++) {
-                System.out.println();
-                for (int j = 0; j < board[i].length; j++) {
-                    System.out.print("  " + board[i][j]);
-                }
-            }
             System.out.println();
             System.out.print("Enter a number of the tile: ");
             int tile = scanner.nextInt();
@@ -150,7 +144,15 @@ public class Main {
             ) {
                 playerLose = true;
             }
-        } while (tilesFilled < 9 || !playerWin || !playerLose);
+            for (int i = 0; i < board.length; i++) {
+                System.out.println();
+                for (int j = 0; j < board[i].length; j++) {
+                    System.out.print("  " + board[i][j]);
+                }
+            }
+        } while (tilesFilled < 9 && !playerWin && !playerLose);
+
+        System.out.println();
 
         if (playerWin) {
             System.out.println("You won!");
